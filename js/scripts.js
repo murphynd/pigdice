@@ -5,7 +5,7 @@ function Game(name) {
 }
 
 Game.prototype.addplayer = function (player) {
-  player.id = this.assignId();
+  // player.id = this.assignId();
   this.players.push(player);
 };
 
@@ -16,15 +16,25 @@ function Player(name) {
   this.score = 0;
   this.rollAmount = 0;
 }
+
 $(document).ready(function () {
   $("form#playerNames").submit(function (event) {
     event.preventDefault();
+    let pigDice = new Game("pigDice");
+
     const inputtedPlayer1 = $("input#player1Name").val();
     const inputtedPlayer2 = $("input#player2Name").val();
-    // let newplayer1 = new Player(inputtedPlayer1);
-    // let newplayer2 = new Player(inputtedPlayer2);
+    let newplayer1 = new Player(inputtedPlayer1);
+    let newplayer2 = new Player(inputtedPlayer2);
+    pigDice.addplayer(newplayer1);
+    pigDice.addplayer(newplayer2);
+
+    // newplayer1(inputtedPlayer1);
     console.log(inputtedPlayer2);
     console.log(inputtedPlayer1);
+    console.log(newplayer1);
+    console.log(pigDice);
+
     $("#rollOrHold").show();
     $("#playerNames").hide();
     $(".name1").text(inputtedPlayer1);

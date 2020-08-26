@@ -27,10 +27,12 @@ Hard: Computer uses strategy based on current total and rolled dice.
 
 ## Specs
 
+Test 1
 players enter names:
 input : two names
 output: two names printed and form hides
 
+Test 2
 players have empty scores under names
 input : names
 output: names with empty scores
