@@ -1,16 +1,15 @@
 function Game(nameparam) {
   this.name = nameparam;
   this.players = [];
-  this.currentId = 0;
+  this.rollAmount = 0;
+  this.score = 0;
 }
-// Game.prototype.nextPlayer = function (i) {
-//   if (this.players[i].currentId < this.players.length) {
-//     this.players[i]++;
-//   } else {
-//     this.players[i] = 1;
-//   }
-// };
-function nextPlayer() {
+Game.prototype.addplayer = function (playerparam) {
+  playerparam = this.assignId();
+  this.players.push(playerparam);
+};
+Game.prototype.nextPlayer = function () {
+  // change back to Game.prototype?
   let currentPlayer;
   let i = 0;
   if (i < this.players.length) {
@@ -21,29 +20,14 @@ function nextPlayer() {
   }
   i++;
   return currentPlayer;
-}
-
-Game.prototype.addplayer = function (playerparam) {
-  playerparam.id = this.assignId();
-  this.players.push(playerparam);
 };
-Game.prototype.assignId = function () {
-  this.currentId += 1;
-  return this.currentId;
-};
-function Player(name) {
-  this.name = name;
-  this.score = 0;
-  this.rollAmount = 0;
-}
-Player.prototype.addscore = function () {
+Game.prototype.addscore = function () {
   this.score += this.rollAmount;
   this.rollAmount = 0;
-  // alert("i added something!!");
+  alert("i added something!!");
   // fucntion next turn (this is hold button)
-  nextPlayer();
 };
-Player.prototype.roll = function () {
+Game.prototype.roll = function () {
   let roll = Math.ceil(Math.random() * 6);
   if (roll > 1) {
     this.rollAmount += roll;
@@ -54,13 +38,23 @@ Player.prototype.roll = function () {
   return this.rollAmount;
 };
 
+function Player(name) {
+  this.name = name;
+  this.currentId = 0;
+}
+
+Player.prototype.assignId = function () {
+  this.currentId += 1;
+  return this.currentId;
+};
+
 $(document).ready(function () {
   $("form#playerNames").submit(function (event) {
     event.preventDefault();
     let pigDice = new Game("pigDice");
-
     const inputtedPlayer1 = $("input#player1Name").val();
     const inputtedPlayer2 = $("input#player2Name").val();
+
     let newplayer1 = new Player(inputtedPlayer1);
     let newplayer2 = new Player(inputtedPlayer2);
     pigDice.addplayer(newplayer1);
@@ -98,7 +92,7 @@ $(document).ready(function () {
       console.log(pigDice.players[0].score);
       $("#scorePlayer1").text(pigDice.players[0].score);
       $("#scorePlayer2").text(pigDice.players[1].score);
-      pigDice.nextPlayer();
+      pigDice.nextPlayer(1);
     });
   });
 });
