@@ -25,17 +25,17 @@
 
       <form id="rollOrHold">
         <!-- show when submit #player names -->
-        <p>Hello! <span class="name1"></span> <span class="name2"></span></p>
-        <button type="submit" class="btn btn-outline-success" id="roll">
-          Roll
+        <p>Hello!</p>
+        <div><span class="name1"></span> <span id="scorePlayer1"></span></div>
+        <div><span class="name2"></span> <span id="scorePlayer2"></span></div>
+        <button type="button" class="btn btn-outline-success" id="roll">
+          roll
+          <!-- change back from 'submit' type Roll  -->
         </button>
-        <button type="submit" class="btn btn-outline-danger" id="hold">
+        <button type="button" class="btn btn-outline-danger" id="hold">
           Hold
         </button>
       </form>
-
-      <div id="scorePlayer1"></div>
-      <div id="scorePlayer2"></div>
     </div>
   </body>
 </html>

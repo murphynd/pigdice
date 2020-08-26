@@ -1,4 +1,4 @@
-# _Pig Dice_
+# _Pig Dice 🎲_
 
 #### _A game of dice, Aug 26, 2020_
 
@@ -6,7 +6,7 @@
 
 ## Description
 
-Pig Dice
+Pig Dice 🎲
 Write a program where two users can play Pig dice against each other. Don't forget to write plain English specifications with example inputs and outputs before you begin coding!
 
 Each turn, a player repeatedly rolls a die until either a 1 is rolled or the player decides to "hold":
@@ -27,20 +27,13 @@ Hard: Computer uses strategy based on current total and rolled dice.
 
 ## Specs
 
-Test 1
-players enter names:
-input : two names
-output: two names printed and form hides
+![drawing of plan](</imgs/aww-board(1).png>)
 
-Test 2
-players have empty scores under names
-input : names
-output: names with empty scores
-
-players roll to decide who goes first.
-input: player clicks roll other player clicks roll
-who ever is closer to 1 is player 1
-output: player 1 & 2 are chosen
+| test                                   | input                                                                                  | output                           |
+| -------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------- |
+| players enter names                    | two names                                                                              | two names printed and form hides |
+| players have empty scores under names  | names                                                                                  | names with empty scores          |
+| players roll to decide who goes first. | input: player clicks roll other player clicks roll who ever is closer to 1 is player 1 | output: player 1 & 2 are chosen  |
 
 player one rolls and score is added to roll amount
 input: player one hits roll button
