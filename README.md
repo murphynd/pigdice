@@ -29,35 +29,16 @@ Hard: Computer uses strategy based on current total and rolled dice.
 
 ![drawing of plan](</imgs/aww-board(1).png>)
 
-| test                                   | input                                                                                  | output                           |
-| -------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------- |
-| players enter names                    | two names                                                                              | two names printed and form hides |
-| players have empty scores under names  | names                                                                                  | names with empty scores          |
-| players roll to decide who goes first. | input: player clicks roll other player clicks roll who ever is closer to 1 is player 1 | output: player 1 & 2 are chosen  |
-
-player one rolls and score is added to roll amount
-input: player one hits roll button
-output: rollAmount adds up
-
-player one rolls a one and ammount is zero
-input: make outcome of roll 1
-output: 0
-
-player one rollAmmount is added to score
-input: turn is over
-output: score reflects outcome of rollAmmount
-
-switch players
-input: turn is over due to rolling a 1 or player hitting hold
-output: player 2 begins.
-
-win!
-input score of a player reaches >100
-output: games stops and player with the score over 100 wins-- option to reset
-
-- Add two numbers together, return the total
-  - input: 3, 2
-  - output: 5
+| test | desire                                             | input                                                                                  | output                                                                        |
+| ---- | -------------------------------------------------- | -------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| 1    | players enter names                                | two names                                                                              | two names printed and form hides                                              |
+| 2    | players have empty scores under names              | names                                                                                  | names with empty scores                                                       |
+| 3    | players roll to decide who goes first.             | input: player clicks roll other player clicks roll who ever is closer to 1 is player 1 | output: player 1 & 2 are chosen                                               |
+| 4    | player one rolls and score is added to roll amount | input: player one hits roll button                                                     | output: rollAmount adds up                                                    |
+| 5    | player one rolls a one and ammount is zero         | input: make outcome of roll 1                                                          | output: 0                                                                     |
+| 6    | player one rollAmmount is added to score           | input: turn is over                                                                    | output: score reflects outcome of rollAmmount                                 |
+| 7    | switch players                                     | input: turn is over due to rolling a 1 or player hitting hold                          | output: player 2 begins.                                                      |
+| 8    | win!                                               | input score of a player reaches >100                                                   | output: games stops and player with the score over 100 wins-- option to reset |
 
 ## Setup/Installation Requirements
 

@@ -3,17 +3,21 @@ function Game(nameparam) {
   this.players = [];
   this.currentId = 0;
 }
-
+Game.prototype.nextPlayer = function (i) {
+  if (this.players[i].currentId + 1 < this.players.length) {
+    this.players[i]++;
+  } else {
+    this.players[i] = 0;
+  }
+};
 Game.prototype.addplayer = function (playerparam) {
   playerparam.id = this.assignId();
   this.players.push(playerparam);
 };
-
 Game.prototype.assignId = function () {
   this.currentId += 1;
   return this.currentId;
 };
-
 function Player(name) {
   this.name = name;
   this.score = 0;
@@ -22,19 +26,17 @@ function Player(name) {
 Player.prototype.addscore = function () {
   this.score += this.rollAmount;
   this.rollAmount = 0;
+  alert("i added something!!");
   // fucntion next turn (this is hold button)
 };
-
 Player.prototype.roll = function () {
-  // let rollAmount = 0;
   let roll = Math.ceil(Math.random() * 6);
   if (roll > 1) {
     this.rollAmount += roll;
   } else {
     this.rollAmount = 0;
-    // addscore function
+    this.addscore();
   }
-
   return this.rollAmount;
 };
 
@@ -70,47 +72,19 @@ $(document).ready(function () {
     // $(".name2").show();
     $("#roll").click(function (event) {
       event.preventDefault();
-      newplayer1.roll();
+      pigDice.players[0].roll();
       console.log(pigDice.players[0].rollAmount);
 
-      // let score = newplayer1.roll();
+      // let score = pigDice.players[0].roll();
       // $("#scorePlayer1").text(score); //just for testing
     });
     $("#hold").click(function (event) {
       event.preventDefault();
-      newplayer1.addscore();
+      pigDice.players[0].addscore();
       console.log(pigDice.players[0].score);
       $("#scorePlayer1").text(pigDice.players[0].score);
       $("#scorePlayer2").text(pigDice.players[1].score);
-
-      // let score = newplayer1.roll();
-      // $("#scorePlayer1").text(score); //just for testing
+      pigDice.nextPlayer(1);
     });
   });
 });
-
-// function writeNameAndValue(name, value) {
-//   $('#account-name').text("Welcome " + name + '!');
-//   $('#balance').val('$' + value.toFixed(2));
-// }
-// writeNameAndValue(newBankaccount.name, newBankaccount.Check());
-// $(".scorePlayer1").show();
-// $(".scorePlayer2").show();
-
-// let pigDice = new Game("pigDice");
-// let Player1 = new Player("name");
-// let Player2 = new Player("name");
-
-// $("form#rollOrHold").submit(function (event) {
-//   event.preventDefault();
-//   let score = Player1.score;
-//   $("#scorePlayer1").text(score);
-// });
-// $("#roll").submit(function (event) {
-//   event.preventDefault();
-//   let score = newplayer1.roll();
-//   $("#scorePlayer1").text(score);
-// } else {
-//   this.rollAmount = 0;
-//   this.score += this.rollAmount;
-//   // change to next player
