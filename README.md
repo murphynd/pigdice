@@ -27,7 +27,7 @@ Hard: Computer uses strategy based on current total and rolled dice.
 
 ## Specs
 
-![drawing of plan](</imgs/aww-board(1).png>)
+![drawing of plan](imgs/aww-board(1).png)
 
 | test | desire                                             | input                                                                                  | output                                                                        |
 | ---- | -------------------------------------------------- | -------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
