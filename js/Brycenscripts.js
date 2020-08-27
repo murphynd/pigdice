@@ -49,7 +49,6 @@ console.log(PLAYERSINDEX);
 nextPlayer();
 console.log(PLAYERS[PLAYERSINDEX]);
 console.log(PLAYERSINDEX);
-console.loge;
 
 $(document).ready(function () {
   $("form#playerNames").submit(function (event) {
@@ -70,18 +69,20 @@ $(document).ready(function () {
   });
   $("#roll").click(function (event) {
     event.preventDefault();
-    alert("roll");
     console.log("roll");
     PLAYERS[PLAYERSINDEX].roll();
     console.log(PLAYERS[PLAYERSINDEX]);
+    $("#rollAmount1").text(PLAYERS[0].rollAmount);
+    $("#rollAmount2").text(PLAYERS[1].rollAmount);
   });
   $("#hold").click(function (event) {
     event.preventDefault();
-    alert("hold");
     console.log("hold");
     PLAYERS[PLAYERSINDEX].hold();
     console.log(PLAYERS[PLAYERSINDEX]);
     $("#scorePlayer1").text(PLAYERS[0].score);
     $("#scorePlayer2").text(PLAYERS[1].score);
+    // $("#rollAmount1").text(PLAYERS[0].rollAmount);
+    // $("#rollAmount2").text(PLAYERS[1].rollAmount);
   });
 });
